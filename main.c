@@ -16,9 +16,11 @@ struct descriptor {
     struct node *last; //Ponteiro para o último nó da lista
 };
 
-// Protótipo da função sortedInsert
+// Protótipo da função sortedInsert, será inserida logo adiante
 void sortedInsert(struct node **head_ref, struct node *new_node);
 
+//Algoritmo ordenação está implementado em 2 funções:
+//Percorre os nós da lista e chama a função sortedInsert para inserir cada nó na lista
 void insertionSort(struct node **head_ref) {
     struct node *sorted = NULL;
     struct node *current = *head_ref;
@@ -30,6 +32,7 @@ void insertionSort(struct node **head_ref) {
     *head_ref = sorted;
 }
 
+//
 void sortedInsert(struct node **head_ref, struct node *new_node) {
     struct node *current;
     if (*head_ref == NULL || (*head_ref)->info >= new_node->info) {
